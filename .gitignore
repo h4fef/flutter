@@ -1,0 +1,16 @@
+todo/windows/flutter/generated_plugins.cmake
+expense_tracker/pubspec.lock
+expense_tracker/linux/flutter/generated_plugin_registrant.cc
+expense_tracker/linux/flutter/generated_plugin_registrant.h
+expense_tracker/linux/flutter/generated_plugins.cmake
+expense_tracker/macos/Flutter/GeneratedPluginRegistrant.swift
+expense_tracker/windows/flutter/generated_plugin_registrant.cc
+expense_tracker/windows/flutter/generated_plugin_registrant.h
+expense_tracker/windows/flutter/generated_plugins.cmake
+todo/linux/flutter/generated_plugin_registrant.cc
+todo/linux/flutter/generated_plugin_registrant.h
+todo/linux/flutter/generated_plugins.cmake
+todo/macos/Flutter/GeneratedPluginRegistrant.swift
+todo/windows/flutter/generated_plugin_registrant.cc
+todo/windows/flutter/generated_plugin_registrant.h
+todo/windows/flutter/generated_plugins.cmake

@@ -1,4 +1,5 @@
 import 'package:expense_tracker/new_expense.dart';
+import 'package:expense_tracker/widgets/chart/chart.dart';
 import 'package:expense_tracker/widgets/expenses_list/expenses_list.dart';
 import 'package:expense_tracker/models/expense.dart';
 import 'package:flutter/material.dart';
@@ -28,10 +29,15 @@ class _ExpansesState extends State<Expanses> {
 
   void _openAddExpense() {
     showModalBottomSheet(
+      useSafeArea: true,
       isScrollControlled: true,
       context: context,
       builder: (ctx) => NewExpense(
         onAdd: _addExpense,
+      ),
+      constraints: BoxConstraints(
+        minWidth: 0,
+        maxWidth: MediaQuery.of(context).size.width,
       ),
     );
   }
@@ -65,6 +71,7 @@ class _ExpansesState extends State<Expanses> {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
     Widget mainContent =
         const Center(child: Text('No expenses found. Start adding some!'));
     if (_registeredExpenses.isNotEmpty) {
@@ -83,12 +90,23 @@ class _ExpansesState extends State<Expanses> {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          const Text('chart'),
-          Expanded(child: mainContent),
-        ],
-      ),
+      body: width <= 600
+          ? Column(
+              children: [
+                Chart(expenses: _registeredExpenses),
+                Expanded(child: mainContent),
+              ],
+            )
+          : Row(
+              children: [
+                Expanded(
+                  child: Chart(
+                    expenses: _registeredExpenses,
+                  ),
+                ),
+                Expanded(child: mainContent),
+              ],
+            ),
     );
   }
 }
